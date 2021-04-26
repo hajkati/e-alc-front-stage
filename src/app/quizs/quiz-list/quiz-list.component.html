@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <table class="table table-striped table-hover">
+      <thead>
+      <th>Libelle Question</th>
+      <th>Type Question</th>
+      <th>Reponses</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let q of questions">
+        <td>{{q.id}}</td>
+        <td>{{q.ref}}</td>
+        <td>{{q.numero}}</td>
+        <td>{{q.type}}</td>
+        <td>{{q.pointReponsefausse}}</td>
+        <td>{{q.pointReponseJuste}}</td>
+      </tr>
+      </tbody>
+      </table>
+  </div>
+  <div class="card-footer"></div>
+</div>
+

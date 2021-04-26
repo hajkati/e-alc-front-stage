@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light m-auto bg-light justify-content-between bg-dark ">
+  <a class="navbar-brand">Navbar</a>
+  <form class="form-inline">
+    <br/>
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="save()">Save</button>
+    </div>
+  </form>
+</nav>
+<div class="card">
+  <div class="card-header"><h1 CLASS=" font-italic align-self-center">Quiz</h1></div>
+  <div class="card-body">
+    <div class="card">
+      <div class="card col-md-8 m-auto">
+        <div class="card-header" > <div> <label>Reference du Quiz   :   </label>
+          <input type="text" class="form-control" [(ngModel)]="question.quiz.ref"></div></div>
+        <div class="card-body col-md-12 m-auto" id="addCard">
+          <div class="form-group">
+            <label>Numero Question :</label><input type="number" class="form-control" [(ngModel)]="question.numero">
+            <label >Question :</label>
+            <input type="text" class="form-control"  [(ngModel)]="question.libelle"></div>
+          <div class="form-group">
+            <label>Type De Question : </label>
+            <select name="type" id="type-question"   class="form-control" >
+              <option  *ngFor="let tp of answers"  [(ngModel)]="question.type.libelle">{{tp.ans}}</option>
+            </select>
+          </div>
+          <h4>Reponse</h4>
+          <div class="form-group" id="text" style="display:block" >
+            <label >numero</label>
+            <input type="number" class="form-control-sm form-control" [(ngModel)]="reponse.numero">
+            <label>reponse</label>
+            <input type="text" class=" m-auto form-control " [(ngModel)]="reponse.lib">
+            <label>Reference</label>
+            <input type="text" class="form-control" [(ngModel)]="reponse.ref">
+<div class="row m-lg-4">
+            <label class="m-auto">Correct :</label>
+            <input type="checkbox" id="checked" class="form-control m-auto col-md-4 " [(ngModel)]="reponse.correct" (click)="correct($event)">
+</div>
+  <br/>
+            <div>
+            <button class="btn btn-primary float-right form-control col-md-1  " (click)="addReponse()">+</button>
+            </div>
+            </div>
+          <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+              <table class="table table-striped table-hover">
+                <thead>
+                <th>Numero</th>
+                <th>Libelle Reponse</th>
+                <th>Action</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let q of question.reponses; index as i">
+                  <td>{{q.numero}}</td>
+                  <td>{{q.lib}}</td>
+                  <td><span (click)="delete(i)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-outline-primary btn-block  col-md-6 m-auto" (click)="addCard()">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>
+
